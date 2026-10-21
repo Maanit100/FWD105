@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LDECAIO | South Asian University</title>
+
+  <style>
+    /* ===== EDIT THE COLOURS HERE ===== */
+    :root {
+      --navy: #12304a;
+      --blue: #176b87;
+      --light-blue: #eaf4f8;
+      --text: #273746;
+      --muted: #637381;
+      --white: #ffffff;
+      --background: #f7f9fb;
+      --border: #dce5eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--background);
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .top-bar {
+      background: var(--navy);
+      color: var(--white);
+      padding: 9px 6%;
+      font-size: 14px;
+    }
+
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Replace this text with your university logo if required. */
+    .logo-placeholder {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border: 2px dashed #9aafbd;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .header-title h1 {
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .header-title p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    nav {
+      background: var(--blue);
+    }
+
+    .nav-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    nav a {
+      display: block;
+      color: var(--white);
+      padding: 13px 16px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      background: var(--navy);
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: 28px auto;
+      padding: 0 24px;
+    }
+
+    section {
+      background: var(--white);
+      padding: 28px;
+      margin-bottom: 22px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      color: var(--blue);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    .welcome {
+      background: var(--light-blue);
+      border-left: 5px solid var(--blue);
+    }
+
+    .welcome h2 {
+      font-size: 28px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* IMAGE PLACEHOLDER: replace the placeholder below with an <img> tag. */
+    .image-placeholder {
+      min-height: 220px;
+      border: 2px dashed #9aafbd;
+      background: #f0f5f8;
+      color: var(--muted);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .profile .image-placeholder {
+      width: 140px;
+      min-width: 140px;
+      min-height: 150px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 22px;
+      margin: 8px 0 12px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--light-blue);
+      color: var(--navy);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .gallery .image-placeholder {
+      min-height: 160px;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #c7eafa;
+    }
+
+    @media (max-width: 760px) {
+      .header-inner {
+        align-items: flex-start;
+      }
+
+      .header-title h1 {
+        font-size: 18px;
+      }
+
+      .intro-grid,
+      .cards,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .profile {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav a {
+        padding: 10px 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar">
+    South Asian University | Department of Computer Science and Engineering
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <!-- OPTIONAL: Replace this circle with your university/lab logo. -->
+      <div class="logo-placeholder">LOGO<br>HERE</div>
+
+      <div class="header-title">
+        <h1>Laboratory for Data Engineering, Computational Analytics and Intelligent Optimization</h1>
+        <p>LDECAIO · Department of Computer Science and Engineering · South Asian University</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#research">Research Areas</a>
+      <a href="#members">Lab Members</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="welcome" id="home">
+      <h2>Welcome to LDECAIO!</h2>
+      <p>
+        <!-- EDIT THIS: Add a short welcome message for your laboratory. -->
+        Welcome to the Laboratory for Data Engineering, Computational Analytics and
+        Intelligent Optimization. We explore data-driven methods, computational
+        techniques, and intelligent approaches to solving challenging problems.
+      </p>
+    </section>
+
+    <section id="about">
+      <h2>About the Laboratory</h2>
+      <div class="intro-grid">
+        <div>
+          <!-- EDIT THIS: Replace with your approved laboratory description. -->
+          <p>
+            Our laboratory focuses on developing and applying methods for collecting,
+            managing, processing, and analysing data, alongside computational models
+            and optimization techniques for complex real-world problems.
+          </p>
+          <p>
+            Through research, experimentation, and collaboration, we aim to contribute
+            to reliable data systems, effective analytical methods, and intelligent
+            decision-making.
+          </p>
+          <p class="note">
+            Note: Update this introductory text to reflect the lab's actual goals and
+            ongoing research.
+          </p>
+        </div>
+
+        <!-- IMAGE PLACEHOLDER: Add a lab photo, research image, or banner here. -->
+        <div class="image-placeholder">
+          Lab / Research Image<br>
+          Replace this box with your image
+        </div>
+      </div>
+
+      <h3 style="margin-top: 24px;">Principal Investigator</h3>
+      <div class="profile">
+        <!-- IMAGE PLACEHOLDER: Replace with the faculty photo. -->
+        <div class="image-placeholder">Faculty Photo</div>
+        <div>
+          <!-- EDIT THIS: Confirm or change the faculty details. -->
+          <h3>Dr. Rajesh Ranjan</h3>
+          <p>Principal Investigator / Faculty Coordinator</p>
+          <p>Department of Computer Science and Engineering</p>
+          <p class="note">Add faculty profile link, email, designation, and biography here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research Areas</h2>
+      <p><!-- EDIT THIS: Add, remove, or rename areas to match current lab research. --></p>
+      <div class="cards">
+        <div class="card">
+          <h3>Data Engineering</h3>
+          <p>Data pipelines, data integration, data management, and scalable data systems.</p>
+        </div>
+        <div class="card">
+          <h3>Computational Analytics</h3>
+          <p>Computational methods for discovering patterns, analysing data, and supporting decisions.</p>
+        </div>
+        <div class="card">
+          <h3>Intelligent Optimization</h3>
+          <p>Optimization models and intelligent algorithms for complex problems.</p>
+        </div>
+        <div class="card">
+          <h3>Machine Learning</h3>
+          <p>Add a description of relevant learning algorithms and applications.</p>
+        </div>
+        <div class="card">
+          <h3>Big Data Systems</h3>
+          <p>Add details about large-scale processing, distributed systems, or cloud platforms.</p>
+        </div>
+        <div class="card">
+          <h3>Applied Research</h3>
+          <p>Describe application areas, collaborations, and practical research outcomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="members">
+      <h2>Current Lab Members</h2>
+      <p class="note">Replace the sample rows below with verified member details.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Name</th>
+              <th>Research / Thesis Topic</th>
+              <th>Programme</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>[Member Name]</td>
+              <td>[Research or thesis title]</td>
+              <td>[Ph.D. / M.Tech. / Other]</td>
+              <td>[Ongoing / Completed]</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>[Member Name]</td>
+              <td>[Research or thesis title]</td>
+              <td>[Programme]</td>
+              <td>[Status]</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>[Member Name]</td>
+              <td>[Research or thesis title]</td>
+              <td>[Programme]</td>
+              <td>[Status]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Research Projects</h2>
+      <p class="note">Add approved project information. Remove this section if it is not needed.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Project Title</th>
+              <th>Funding Agency</th>
+              <th>Duration</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>[Project title]</td>
+              <td>[Funding agency]</td>
+              <td>[Start year – End year]</td>
+              <td>[Ongoing / Completed]</td>
+            </tr>
+            <tr>
+              <td>[Project title]</td>
+              <td>[Funding agency]</td>
+              <td>[Duration]</td>
+              <td>[Status]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <p><!-- EDIT THIS: Add publication details and links. --></p>
+      <ul>
+        <li>[Author(s)], “[Paper title],” [Journal or Conference], [Year]. <a href="#">Read paper</a></li>
+        <li>[Author(s)], “[Paper title],” [Journal or Conference], [Year]. <a href="#">Read paper</a></li>
+        <li>[Author(s)], “[Paper title],” [Journal or Conference], [Year]. <a href="#">Read paper</a></li>
+      </ul>
+      <p class="note">Replace each # link with the actual publication URL.</p>
+    </section>
+
+    <section id="gallery">
+      <h2>Lab Events and Highlights</h2>
+      <p><!-- EDIT THIS: Add captions for seminars, workshops, meetings, and lab activities. --></p>
+      <div class="gallery">
+        <div>
+          <div class="image-placeholder">Event Photo 1</div>
+          <p class="note">[Event name and date]</p>
+        </div>
+        <div>
+          <div class="image-placeholder">Event Photo 2</div>
+          <p class="note">[Event name and date]</p>
+        </div>
+        <div>
+          <div class="image-placeholder">Event Photo 3</div>
+          <p class="note">[Event name and date]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><strong>Laboratory:</strong> LDECAIO</p>
+      <p><strong>Department:</strong> Computer Science and Engineering</p>
+      <p><strong>University:</strong> South Asian University, Maidan Garhi, New Delhi, India</p>
+      <p><strong>Room:</strong> [Add room number]</p>
+      <p><strong>Email:</strong> <a href="mailto:your-email@example.com">[Add laboratory email]</a></p>
+      <p><strong>Website:</strong> <a href="https://sau.int/">South Asian University</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© [Year] Laboratory for Data Engineering, Computational Analytics and Intelligent Optimization</p>
+    <p>Department of Computer Science and Engineering · South Asian University</p>
+  </footer>
+</body>
+</html>
